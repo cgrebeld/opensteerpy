@@ -1,0 +1,1 @@
+gcc -fPIC -c opensteer_wrap.cpp -o opensteer_wrap.o -I/usr/include/python2.5
