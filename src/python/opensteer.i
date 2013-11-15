@@ -4,9 +4,11 @@
 %include "std_vector.i"
 
 #define NO_ANNOT 1
+#define NOT_OPENSTEERDEMO 1
 
 %{
 #define NO_ANNOT 1
+#define NOT_OPENSTEERDEMO 1
 #include "OpenSteer/Utilities.h"
 #include "OpenSteer/Vec3.h"
 #include "OpenSteer/Vec3Utilities.h"

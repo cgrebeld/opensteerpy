@@ -1047,7 +1047,7 @@ steerForPursuit (const AbstractVehicle& quarry,
 
 #ifndef NO_ANNOT    
     // annotation
-    annotationLine (position(),
+    this->annotationLine (position(),
                     target,
                     gaudyPursuitAnnotation ? color : gGray40);
 #endif
