@@ -1,6 +1,6 @@
 import opensteer as os
 
-minTimToCollision = 0.5
+minTimToCollision = 1.5
 
 _worldRadius = 0.0
 _db = None
@@ -31,6 +31,10 @@ class Boid(os.TrivialVehicle):
         self.setPosition(v)
         # notify proximity database that our position has changed
         self._proximityToken.updateForNewPosition(self.position())
+        self.separation = os.Vec3.zero
+        self.avoidance = os.Vec3.zero
+        self.alignment = os.Vec3.zero
+        self.cohesion = os.Vec3.zero
 
     def moveTo(self,x,y,z):
         self.setPosition(os.Vec3(x,y,z))
@@ -54,12 +58,12 @@ class Boid(os.TrivialVehicle):
     def steerToFlock(self):
         # basic flocking
         # avoid obstacles if needed
-        avoidance = self.steerToAvoidObstacles (minTimToCollision, obstacles)
-        if avoidance != os.Vec3.zero:
-            return avoidance;
+        self.avoidance = self.steerToAvoidObstacles (minTimToCollision, obstacles)
+        if self.avoidance != os.Vec3.zero:
+            return self.avoidance;
         separationRadius =  5.0
         separationAngle  = -0.707
-        separationWeight =  12.0
+        separationWeight =  8.0
 
         alignmentRadius = 7.5
         alignmentAngle  = 0.7
@@ -77,21 +81,21 @@ class Boid(os.TrivialVehicle):
         neighbors = self._proximityToken.findNeighbors (self.position(), maxRadius);
 
         # determine each of the three component behaviors of flocking
-        separation = self.steerForSeparation (separationRadius,
+        self.separation = self.steerForSeparation (separationRadius,
                                               separationAngle,
                                               neighbors)
-        alignment  = self.steerForAlignment  (alignmentRadius,
+        self.alignment  = self.steerForAlignment  (alignmentRadius,
                                               alignmentAngle,
                                               neighbors)
-        cohesion   = self.steerForCohesion   (cohesionRadius,
+        self.cohesion   = self.steerForCohesion   (cohesionRadius,
                                               cohesionAngle,
                                               neighbors)
 
         # apply weights to components (save in variables for annotation)
-        separationW = separation * separationWeight
-        alignmentW = alignment * alignmentWeight
-        cohesionW = cohesion * cohesionWeight
-        return separationW + alignmentW + cohesionW
+        self.separation *= separationWeight
+        self.alignment *= alignmentWeight
+        self.cohesion *= cohesionWeight
+        return self.separation + self.alignment + self.cohesion
 
     def sphericalWrapAround(self):
         pos = self.position()

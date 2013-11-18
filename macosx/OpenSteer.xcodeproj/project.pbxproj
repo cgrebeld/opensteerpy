@@ -214,6 +214,8 @@
 		32FFF58006E9CF3800E1D8A3 /* OpenSteer.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = OpenSteer.icns; sourceTree = "<group>"; };
 		32FFF59306EB3FDE00E1D8A3 /* doc */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = folder; name = doc; path = ../doc; sourceTree = "<group>"; };
 		32FFF5A506EB3FFD00E1D8A3 /* COPYING.OPENSTEER */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = COPYING.OPENSTEER; path = ../COPYING.OPENSTEER; sourceTree = "<group>"; };
+		8312AF011838717B0075E975 /* boidstest.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = boidstest.py; path = python/boidstest.py; sourceTree = "<group>"; };
+		8312AF021838717B0075E975 /* boids.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; name = boids.py; path = python/boids.py; sourceTree = "<group>"; };
 		837FAF471835C26300C0E73D /* libpython2.7.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpython2.7.dylib; path = ../../../../../System/Library/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib; sourceTree = "<group>"; };
 		83B6225018345E6A00204559 /* _opensteer.so */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = _opensteer.so; sourceTree = BUILT_PRODUCTS_DIR; };
 		83B6225318345E6A00204559 /* OpenSteerLib-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OpenSteerLib-Prefix.pch"; sourceTree = "<group>"; };
@@ -412,6 +414,8 @@
 				83B622731834660700204559 /* opensteer.i */,
 				83B6227D183468E000204559 /* opensteer_wrap.h */,
 				83B6227E1834690500204559 /* opensteer_wrap.cpp */,
+				8312AF011838717B0075E975 /* boidstest.py */,
+				8312AF021838717B0075E975 /* boids.py */,
 			);
 			name = src;
 			path = ../src;
